@@ -1,0 +1,72 @@
+{%extends "layout.njk"%}
+
+
+{%block header%}
+
+        <header>
+            <div class="header">
+                <a href="/" class="logo"><img src="../assets/logo.png"  alt="logo"></a>
+                <a href="/about" class="sobre">Sobre</a>
+                <a href="/recipe" class="sobre">Receitas</a>
+            </div>
+            
+        </header>
+
+{%endblock%}
+
+{% block content %}
+
+<div class="detail">
+    <div class="detail_img">
+        <img src="../assets/{{item.id}}.png" alt="{{item.recipe}}">
+    </div>
+
+    <div class="detail_recipe">
+        <p>{{item.recipe}}</p>
+    </div>
+    
+    <div class="detail_by">
+        <p>{{item.by}}</p>
+    </div>
+</div>
+
+<section class="ingredients_detail">
+    <div class="ingredients">
+        <p class="ingredients_1">Ingredientes</p>
+        <a class="show_1">ESCONDER</a>
+    </div>
+    <h2>
+
+    {% for ingredient in item.ingredients %}
+        <ul>
+            <li class="inside">{{ingredient}}</li>
+        </ul>
+    {%endfor%}
+    </h2>
+</section>
+
+<section class="preparation_detail hide1">
+    <div class="preparation">
+        <p class="ingredients_1">Modo de preparo</p>
+        <a class="show_2">MOSTRAR</a>
+    </div>
+    <H2>
+    {%for preparation in item.preparation%}
+        <ul>
+            <li class="inside">{{preparation}}</li>
+        </ul>
+    {%endfor%}
+    </H2>
+</section>
+
+<section class="information_detail hide2">
+    <div class="information">
+        <p class="ingredients_1">Informações adicionais</p>
+        <a class="show_3">MOSTRAR</a>
+    </div>
+    <h2>{{item.information}}</h2>
+
+
+</section>
+
+{%endblock%}
